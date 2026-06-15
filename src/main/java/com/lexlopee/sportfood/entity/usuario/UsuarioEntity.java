@@ -1,4 +1,4 @@
-package com.lexlopee.sportfood.entity;
+package com.lexlopee.sportfood.entity.usuario;
 
 import com.lexlopee.sportfood.entity.comida.ComidaEntity;
 import jakarta.persistence.*;

@@ -1,6 +1,6 @@
 package com.lexlopee.sportfood.entity.progreso;
 
-import com.lexlopee.sportfood.entity.UsuarioEntity;
+import com.lexlopee.sportfood.entity.usuario.UsuarioEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

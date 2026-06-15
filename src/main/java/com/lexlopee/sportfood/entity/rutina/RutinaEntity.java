@@ -1,5 +1,6 @@
-package com.lexlopee.sportfood.entity;
+package com.lexlopee.sportfood.entity.rutina;
 
+import com.lexlopee.sportfood.entity.usuario.UsuarioEntity;
 import com.lexlopee.sportfood.entity.ejercicio.EjercicioEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

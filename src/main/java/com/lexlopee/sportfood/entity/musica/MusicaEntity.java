@@ -1,7 +1,7 @@
 package com.lexlopee.sportfood.entity.musica;
 
 
-import com.lexlopee.sportfood.entity.RutinaEntity;
+import com.lexlopee.sportfood.entity.rutina.RutinaEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
