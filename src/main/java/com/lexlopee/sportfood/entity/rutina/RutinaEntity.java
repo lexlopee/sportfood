@@ -1,7 +1,7 @@
 package com.lexlopee.sportfood.entity.rutina;
 
-import com.lexlopee.sportfood.entity.usuario.UsuarioEntity;
 import com.lexlopee.sportfood.entity.ejercicio.EjercicioEntity;
+import com.lexlopee.sportfood.entity.usuario.UsuarioEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
