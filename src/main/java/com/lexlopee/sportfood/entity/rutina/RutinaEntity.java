@@ -29,7 +29,7 @@ public class RutinaEntity {
     private UsuarioEntity usuarioEntity;
     @ManyToMany
     @JoinTable(
-            name = "ejercicio_contiene_rutinas",
+            name = "ejercicio_contiene_rutina",
             joinColumns = @JoinColumn(name = "id_rutina"),
             inverseJoinColumns = @JoinColumn(name = "id_ejercicio")
     )
