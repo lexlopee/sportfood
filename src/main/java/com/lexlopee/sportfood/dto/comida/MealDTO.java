@@ -9,7 +9,7 @@ public class MealDTO {
     private String idMeal;
 
     @JsonProperty("strMeal")
-    private String name;
+    private String nombre;
 
     @JsonProperty("strMealThumb")
     private String imagen;
