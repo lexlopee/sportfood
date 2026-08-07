@@ -38,4 +38,11 @@ public class ComidaController {
     public void delete (@PathVariable Integer id){
         comidaService.delete(id);
     }
+
+    @PostMapping("/guardar")
+    public ComidaResponseDTO guardarPorIdExterno(@RequestParam("idExterno") String idExterno){
+        ComidaEntity comida = comidaService.guardarPorIdExterno(idExterno);
+        return comidaMapper.toResponseDTO(comida);
+    }
+
 }

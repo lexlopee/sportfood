@@ -30,4 +30,13 @@ public class ComidaService {
     public void delete(Integer id) {
         comidaRepository.deleteById(id);
     }
+
+    public ComidaEntity guardarPorIdExterno(String idExterno){
+        return comidaRepository.findByIdExterno(idExterno)
+                .orElseGet(() ->{
+                    ComidaEntity nueva = new ComidaEntity();
+                    nueva.setIdExterno(idExterno);
+                    return comidaRepository.save(nueva);
+                });
+    }
 }
