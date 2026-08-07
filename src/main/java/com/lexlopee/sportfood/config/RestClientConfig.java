@@ -13,4 +13,11 @@ public class RestClientConfig {
                 .baseUrl("https://www.themealdb.com/api/json/v1/1")
                 .build();
     }
+
+    @Bean
+    public RestClient theExcerciseDbClient(){
+        return RestClient.builder()
+                .baseUrl("https://oss.exercisedb.dev/api/v1")
+                .build();
+    }
 }
