@@ -42,6 +42,13 @@ public class UsuariooController {
         return usuarioMapper.toResponseDTO(usuarioService.save(usuario));
     }
 
+    @PostMapping("/{id}/favorites")
+    public UsuarioResponseDTO guardarComidaFavorita(@PathVariable("id") Integer id,
+                                                    @RequestParam("idExterno") String idExterno){
+        UsuarioEntity usuario = usuarioService.guardarComidaFavorita(id, idExterno);
+        return usuarioMapper.toResponseDTO(usuario);
+    }
+
     //DELETE api/v1/usuario/1 -> borra por id
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
