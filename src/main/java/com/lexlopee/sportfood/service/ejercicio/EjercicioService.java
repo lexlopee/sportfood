@@ -29,4 +29,13 @@ public class EjercicioService {
     public void delete(Integer id) {
         ejercicioRepository.deleteById(id);
     }
+
+    public EjercicioEntity guardarPorIdExterno (String idExterno){
+        return ejercicioRepository.findByIdExterno(idExterno)
+                .orElseGet(() ->{
+                    EjercicioEntity nueva = new EjercicioEntity();
+                    nueva.setIdExterno(idExterno);
+                    return ejercicioRepository.save(nueva);
+                });
+    }
 }
