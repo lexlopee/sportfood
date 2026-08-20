@@ -50,4 +50,9 @@ public class UsuarioService {
         // Guarda el usuario
         return usuarioRepository.save(usuario);
     }
+
+    public List<ComidaEntity> listarComidasFavoritas (Integer idUsuario){
+        UsuarioEntity usuario = usuarioRepository.findById(idUsuario).orElse(null);
+        return  usuario.getComidas();
+    }
 }
