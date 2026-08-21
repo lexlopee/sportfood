@@ -59,7 +59,6 @@ public class UsuariooController {
                 .map(comidaMapper::toResponseDTO)
                 .toList();
     }
-
     //DELETE api/v1/usuario/1 -> borra por id
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
@@ -70,4 +69,11 @@ public class UsuariooController {
     public UsuarioResponseDTO registrar (@RequestBody UsuarioEntity usuario){
         return usuarioMapper.toResponseDTO(usuarioService.registrar(usuario));
     }
+    @PostMapping("/login")
+    public boolean login (@RequestParam("correo") String correo,
+                          @RequestParam("contrasenia") String contrasenia){
+        return usuarioService.login(correo, contrasenia);
+    }
+
+
 }

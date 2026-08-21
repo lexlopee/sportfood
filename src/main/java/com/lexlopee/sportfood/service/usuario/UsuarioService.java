@@ -64,4 +64,12 @@ public class UsuarioService {
         usuario.setContrasenia(hash);
         return usuarioRepository.save(usuario);
     }
+
+    public boolean login (String correo, String contrasenia){
+        UsuarioEntity usuario = usuarioRepository.findByCorreo(correo).orElse(null);
+        if (usuario == null){
+            return false;
+        }
+        return passwordEncoder.matches(contrasenia, usuario.getContrasenia());
+    }
 }
