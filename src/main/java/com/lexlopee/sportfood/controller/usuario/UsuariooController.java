@@ -66,4 +66,8 @@ public class UsuariooController {
         usuarioService.delete(id);
     }
 
+    @PostMapping("/register")
+    public UsuarioResponseDTO registrar (@RequestBody UsuarioEntity usuario){
+        return usuarioMapper.toResponseDTO(usuarioService.registrar(usuario));
+    }
 }

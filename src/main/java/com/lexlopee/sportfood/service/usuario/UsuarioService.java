@@ -4,6 +4,7 @@ import com.lexlopee.sportfood.entity.comida.ComidaEntity;
 import com.lexlopee.sportfood.entity.usuario.UsuarioEntity;
 import com.lexlopee.sportfood.repository.usuario.UsuarioRepository;
 import com.lexlopee.sportfood.service.comida.ComidaService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,11 +14,13 @@ public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
     private final ComidaService comidaService;
+    private final PasswordEncoder passwordEncoder;
 
     //Contructor del Repository
-    public UsuarioService(UsuarioRepository usuarioRepository, ComidaService comidaService) {
+    public UsuarioService(UsuarioRepository usuarioRepository, ComidaService comidaService, PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
         this.comidaService = comidaService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     // Listar todod los usuarios
@@ -54,5 +57,11 @@ public class UsuarioService {
     public List<ComidaEntity> listarComidasFavoritas (Integer idUsuario){
         UsuarioEntity usuario = usuarioRepository.findById(idUsuario).orElse(null);
         return  usuario.getComidas();
+    }
+
+    public UsuarioEntity registrar (UsuarioEntity usuario){
+        String hash = passwordEncoder.encode(usuario.getContrasenia());
+        usuario.setContrasenia(hash);
+        return usuarioRepository.save(usuario);
     }
 }
