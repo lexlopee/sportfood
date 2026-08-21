@@ -35,13 +35,14 @@ public class RutinaService {
         rutinaRepository.deleteById(id);
     }
 
-    public RutinaEntity añadirEjercicio (Integer idRutina, String idExterno) {
+    public RutinaEntity añadirEjercicio(Integer idRutina, String idExterno) {
         RutinaEntity rutina = rutinaRepository.findById(idRutina).orElse(null);
         EjercicioEntity ejercicio = ejercicioService.guardarPorIdExterno(idExterno);
         rutina.getEjercicios().add(ejercicio);
-        return  rutinaRepository.save(rutina);
+        return rutinaRepository.save(rutina);
     }
-    public List<EjercicioEntity> listarEjercicios(Integer idRutina){
+
+    public List<EjercicioEntity> listarEjercicios(Integer idRutina) {
         RutinaEntity rutina = rutinaRepository.findById(idRutina).orElse(null);
         return rutina.getEjercicios();
     }

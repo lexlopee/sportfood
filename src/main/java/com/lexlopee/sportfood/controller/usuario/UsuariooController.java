@@ -48,17 +48,18 @@ public class UsuariooController {
 
     @PostMapping("/{id}/favorites")
     public UsuarioResponseDTO guardarComidaFavorita(@PathVariable("id") Integer id,
-                                                    @RequestParam("idExterno") String idExterno){
+                                                    @RequestParam("idExterno") String idExterno) {
         UsuarioEntity usuario = usuarioService.guardarComidaFavorita(id, idExterno);
         return usuarioMapper.toResponseDTO(usuario);
     }
 
     @GetMapping("/{id}/favorites")
-    public List<ComidaResponseDTO> listarComidasFavoritas(@PathVariable("id") Integer id){
+    public List<ComidaResponseDTO> listarComidasFavoritas(@PathVariable("id") Integer id) {
         return usuarioService.listarComidasFavoritas(id).stream()
                 .map(comidaMapper::toResponseDTO)
                 .toList();
     }
+
     //DELETE api/v1/usuario/1 -> borra por id
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
@@ -66,14 +67,13 @@ public class UsuariooController {
     }
 
     @PostMapping("/register")
-    public UsuarioResponseDTO registrar (@RequestBody UsuarioEntity usuario){
+    public UsuarioResponseDTO registrar(@RequestBody UsuarioEntity usuario) {
         return usuarioMapper.toResponseDTO(usuarioService.registrar(usuario));
     }
+
     @PostMapping("/login")
-    public boolean login (@RequestParam("correo") String correo,
-                          @RequestParam("contrasenia") String contrasenia){
+    public String login(@RequestParam("correo") String correo,
+                         @RequestParam("contrasenia") String contrasenia) {
         return usuarioService.login(correo, contrasenia);
     }
-
-
 }

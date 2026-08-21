@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class MealDTO {
-    @JsonProperty ("idMeal")
+    @JsonProperty("idMeal")
     private String idMeal;
 
     @JsonProperty("strMeal")

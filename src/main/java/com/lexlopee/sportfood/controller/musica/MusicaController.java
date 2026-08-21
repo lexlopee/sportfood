@@ -20,24 +20,24 @@ public class MusicaController {
     }
 
     @GetMapping
-    public List<MusicaResponseDTO> findAll(){
+    public List<MusicaResponseDTO> findAll() {
         return musicaService.findAll().stream()
                 .map(musicaMapper::toResponseDTO)
                 .toList();
     }
 
     @GetMapping("/{id}")
-    public MusicaResponseDTO findById(@PathVariable Integer id){
+    public MusicaResponseDTO findById(@PathVariable Integer id) {
         return musicaMapper.toResponseDTO(musicaService.findById(id));
     }
 
     @PostMapping
-    public MusicaResponseDTO save (@RequestBody MusicaEntity musica){
+    public MusicaResponseDTO save(@RequestBody MusicaEntity musica) {
         return musicaMapper.toResponseDTO(musicaService.save(musica));
     }
 
     @DeleteMapping("/{id}")
-    public void delete (@PathVariable Integer id){
+    public void delete(@PathVariable Integer id) {
         musicaService.delete(id);
     }
 }

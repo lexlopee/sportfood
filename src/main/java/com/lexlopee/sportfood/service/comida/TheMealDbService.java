@@ -17,7 +17,7 @@ public class TheMealDbService {
         this.theMealDbClient = theMealDbClient;
     }
 
-    public List<MealDTO> buscarNombre (String nombre){
+    public List<MealDTO> buscarNombre(String nombre) {
         MealResponseDTO respuesta = theMealDbClient.get()
                 .uri("/search.php?s={nombre}", nombre)
                 .retrieve()

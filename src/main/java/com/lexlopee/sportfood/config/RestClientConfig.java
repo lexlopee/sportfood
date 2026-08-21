@@ -8,14 +8,14 @@ import org.springframework.web.client.RestClient;
 public class RestClientConfig {
 
     @Bean
-    public RestClient theMealDbClient(){
+    public RestClient theMealDbClient() {
         return RestClient.builder()
                 .baseUrl("https://www.themealdb.com/api/json/v1/1")
                 .build();
     }
 
     @Bean
-    public RestClient theExcerciseDbClient(){
+    public RestClient theExcerciseDbClient() {
         return RestClient.builder()
                 .baseUrl("https://oss.exercisedb.dev/api/v1")
                 .build();

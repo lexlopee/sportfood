@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EjercicioMapper {
-    public EjercicioResponseDTO toResponseDTO (EjercicioEntity entity) {
+    public EjercicioResponseDTO toResponseDTO(EjercicioEntity entity) {
         EjercicioResponseDTO dto = new EjercicioResponseDTO();
 
         dto.setIdEjercicio(entity.getIdEjercicio());

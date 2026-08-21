@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ComidaMapper {
-    public ComidaResponseDTO toResponseDTO (ComidaEntity entity) {
+    public ComidaResponseDTO toResponseDTO(ComidaEntity entity) {
         ComidaResponseDTO dto = new ComidaResponseDTO();
         dto.setIdComida(entity.getIdComida());
         dto.setIdExterno(entity.getIdExterno());

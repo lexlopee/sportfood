@@ -12,10 +12,11 @@ import java.util.List;
 public class TheExerciseDbService {
     private final RestClient theExerciseDbClient;
 
-    public TheExerciseDbService(@Qualifier("theExcerciseDbClient")RestClient theExerciseDbClient) {
+    public TheExerciseDbService(@Qualifier("theExcerciseDbClient") RestClient theExerciseDbClient) {
         this.theExerciseDbClient = theExerciseDbClient;
     }
-    public List<ExerciseDTO> listarEjercicios (){
+
+    public List<ExerciseDTO> listarEjercicios() {
         ExerciseResponseDTO respuesta = theExerciseDbClient.get()
                 .uri("/exercises")
                 .retrieve()

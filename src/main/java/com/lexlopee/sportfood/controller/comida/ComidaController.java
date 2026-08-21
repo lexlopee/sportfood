@@ -21,26 +21,29 @@ public class ComidaController {
     }
 
     @GetMapping
-    public List<ComidaResponseDTO> findAll(){
+    public List<ComidaResponseDTO> findAll() {
         return comidaService.findAll().stream()
                 .map(comidaMapper::toResponseDTO)
                 .toList();
     }
+
     @GetMapping("/{id}")
-    public ComidaResponseDTO findByAll (@PathVariable Integer id){
+    public ComidaResponseDTO findByAll(@PathVariable Integer id) {
         return comidaMapper.toResponseDTO(comidaService.findById(id));
     }
+
     @PostMapping
-    public ComidaResponseDTO save (@RequestBody ComidaEntity comida){
+    public ComidaResponseDTO save(@RequestBody ComidaEntity comida) {
         return comidaMapper.toResponseDTO(comidaService.save(comida));
     }
+
     @DeleteMapping("/{id}")
-    public void delete (@PathVariable Integer id){
+    public void delete(@PathVariable Integer id) {
         comidaService.delete(id);
     }
 
     @PostMapping("/guardar")
-    public ComidaResponseDTO guardarPorIdExterno(@RequestParam("idExterno") String idExterno){
+    public ComidaResponseDTO guardarPorIdExterno(@RequestParam("idExterno") String idExterno) {
         ComidaEntity comida = comidaService.guardarPorIdExterno(idExterno);
         return comidaMapper.toResponseDTO(comida);
     }

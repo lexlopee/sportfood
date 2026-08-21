@@ -2,7 +2,10 @@ package com.lexlopee.sportfood.controller.comida;
 
 import com.lexlopee.sportfood.dto.comida.MealDTO;
 import com.lexlopee.sportfood.service.comida.TheMealDbService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -17,7 +20,7 @@ public class TheMealDbController {
     }
 
     @GetMapping("/search")
-    public List<MealDTO> buscarNombre(@RequestParam String nombre){
+    public List<MealDTO> buscarNombre(@RequestParam String nombre) {
         return theMealDbService.buscarNombre(nombre);
     }
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RutinaMapper {
 
-    public RutinaResponseDTO toResponseDTO (RutinaEntity entity){
+    public RutinaResponseDTO toResponseDTO(RutinaEntity entity) {
         RutinaResponseDTO dto = new RutinaResponseDTO();
         dto.setIdRutina(entity.getIdRutina());
         dto.setTiempo(entity.getTiempo());

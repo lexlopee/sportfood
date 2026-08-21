@@ -30,9 +30,9 @@ public class EjercicioService {
         ejercicioRepository.deleteById(id);
     }
 
-    public EjercicioEntity guardarPorIdExterno (String idExterno){
+    public EjercicioEntity guardarPorIdExterno(String idExterno) {
         return ejercicioRepository.findByIdExterno(idExterno)
-                .orElseGet(() ->{
+                .orElseGet(() -> {
                     EjercicioEntity nueva = new EjercicioEntity();
                     nueva.setIdExterno(idExterno);
                     return ejercicioRepository.save(nueva);

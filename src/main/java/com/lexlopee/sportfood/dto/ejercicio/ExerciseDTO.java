@@ -5,12 +5,12 @@ import lombok.Data;
 
 @Data
 public class ExerciseDTO {
-    @JsonProperty ("exerciseId")
+    @JsonProperty("exerciseId")
     private String exerciseId;
 
-    @JsonProperty ("name")
+    @JsonProperty("name")
     private String nombre;
 
-    @JsonProperty ("gifUrl")
+    @JsonProperty("gifUrl")
     private String gifUrl;
 }

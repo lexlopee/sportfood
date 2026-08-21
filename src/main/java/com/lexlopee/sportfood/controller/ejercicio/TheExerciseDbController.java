@@ -18,7 +18,7 @@ public class TheExerciseDbController {
     }
 
     @GetMapping
-    public List<ExerciseDTO> listarEjercicios(){
+    public List<ExerciseDTO> listarEjercicios() {
         return theExerciseDbService.listarEjercicios();
     }
 }

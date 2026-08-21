@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UsuarioMapper {
 
-    public UsuarioResponseDTO toResponseDTO (UsuarioEntity entity){
+    public UsuarioResponseDTO toResponseDTO(UsuarioEntity entity) {
         UsuarioResponseDTO dto = new UsuarioResponseDTO();
 
         dto.setIdUsuario(entity.getIdUsuario());

@@ -22,24 +22,24 @@ public class ProgresoContoller {
     }
 
     @GetMapping
-    public List<ProgresoResponseDTO> findAll(){
+    public List<ProgresoResponseDTO> findAll() {
         return progresoService.findAll().stream()
                 .map(progresoMapper::toResponseDTO)
                 .toList();
     }
 
     @GetMapping("/{id}")
-    public ProgresoResponseDTO findById (@PathVariable Integer id){
+    public ProgresoResponseDTO findById(@PathVariable Integer id) {
         return progresoMapper.toResponseDTO(progresoService.findById(id));
     }
 
     @PostMapping
-    public ProgresoResponseDTO save (@RequestBody ProgresoEntity progreso){
+    public ProgresoResponseDTO save(@RequestBody ProgresoEntity progreso) {
         return progresoMapper.toResponseDTO(progresoService.save(progreso));
     }
 
     @DeleteMapping("/{id}")
-    public void delete (@PathVariable Integer id){
+    public void delete(@PathVariable Integer id) {
         progresoService.delete(id);
     }
 }

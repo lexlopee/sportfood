@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProgresoMapper {
-    public ProgresoResponseDTO toResponseDTO (ProgresoEntity entity){
+    public ProgresoResponseDTO toResponseDTO(ProgresoEntity entity) {
         ProgresoResponseDTO dto = new ProgresoResponseDTO();
 
         dto.setIdProgreso(entity.getIdProgreso());

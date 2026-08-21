@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MusicaMapper {
-    public MusicaResponseDTO toResponseDTO (MusicaEntity entity){
+    public MusicaResponseDTO toResponseDTO(MusicaEntity entity) {
         MusicaResponseDTO dto = new MusicaResponseDTO();
 
         dto.setIdPlaylist(entity.getIdPlaylist());
