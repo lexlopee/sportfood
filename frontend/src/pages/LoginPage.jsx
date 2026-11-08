@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosClient from "../api/axiosClient";
+import { useAuth } from "../context/AuthContext";
 
 function LoginPage() {
   const [correo, setCorreo] = useState("");
   const [contrasenia, setContrasenia] = useState("");
   const [error, setError] = useState(null);
   const [cargando, setCargando] = useState(false);
-
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const entrar = async (e) => {
@@ -25,7 +26,7 @@ function LoginPage() {
         return;
       }
 
-      localStorage.setItem("token", respuesta.data);
+      login(respuesta.data);
       navigate("/comidas");
     } catch (e) {
       setError("No se ha podido conectar con el servidor");
