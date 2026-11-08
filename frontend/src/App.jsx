@@ -1,34 +1,21 @@
-import { useState } from "react";
-import axiosClient from "./api/axiosClient";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ComidasPage from "./pages/ComidasPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
-  const [comidas, setComidas] = useState([]);
-  const [busqueda, setBusqueda] = useState("");
-
-  const buscar = async () => {
-    const respuesta = await axiosClient.get(`/themealdb/search?nombre=${busqueda}`);
-    setComidas(respuesta.data);
-  };
-
   return (
-    <div>
-      <h1>SportFood</h1>
+    <BrowserRouter>
+      <nav>
+        <Link to="/">Inicio</Link> | <Link to="/comidas">Comidas</Link> | <Link to="/login">Login</Link>
+      </nav>
 
-      <input
-        type="text"
-        value={busqueda}
-        onChange={(e) => setBusqueda(e.target.value)}
-        placeholder="Busca una comida"
-      />
-
-      <button onClick={buscar}>Buscar</button>
-
-      <ul>
-        {comidas.map((comida) => (
-          <li key={comida.idMeal}>{comida.strMeal}</li>
-        ))}
-      </ul>
-    </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/comidas" element={<ComidasPage />} />
+          <Route path="/login" element={<LoginPage />} />   
+     </Routes>
+    </BrowserRouter>
   );
 }
 
