@@ -4,6 +4,7 @@ import RutaProtegida from "./components/RutaProtegida";
 import HomePage from "./pages/HomePage";
 import ComidasPage from "./pages/ComidasPage";
 import LoginPage from "./pages/LoginPage";
+import RegistroPage from "./pages/RegistroPage";
 
 function Menu() {
   const { token, logout } = useAuth();
@@ -29,6 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/registro" element={<RegistroPage />} />
           <Route
             path="/comidas"
             element={

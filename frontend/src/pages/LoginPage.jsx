@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosClient from "../api/axiosClient";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   const [correo, setCorreo] = useState("");
@@ -58,6 +59,7 @@ function LoginPage() {
       <button type="submit" disabled={cargando}>
         {cargando ? "Entrando..." : "Entrar"}
       </button>
+      <p>¿No tienes cuenta? <Link to="/registro">Regístrate</Link></p>
 
       {error && <p>{error}</p>}
     </form>
