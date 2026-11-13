@@ -24,4 +24,14 @@ public class TheMealDbService {
                 .body(MealResponseDTO.class);
         return respuesta.getMeals();
     }
+    public MealDTO buscarPorId (String idExterno){
+        MealResponseDTO respuesta = theMealDbClient.get()
+                .uri("/lookup.php?i={id}", idExterno)
+                .retrieve()
+                .body(MealResponseDTO.class);
+        if (respuesta.getMeals() == null || respuesta.getMeals().isEmpty()){
+            return null;
+        }
+        return respuesta.getMeals().get(0);
+    }
 }

@@ -1,5 +1,6 @@
 package com.lexlopee.sportfood.service.comida;
 
+import com.lexlopee.sportfood.dto.comida.MealDTO;
 import com.lexlopee.sportfood.entity.comida.ComidaEntity;
 import com.lexlopee.sportfood.repository.comida.ComidaRepository;
 import org.springframework.stereotype.Service;
@@ -10,9 +11,11 @@ import java.util.List;
 public class ComidaService {
 
     private final ComidaRepository comidaRepository;
+    private final TheMealDbService theMealDbService;
 
-    public ComidaService(ComidaRepository comidaRepository) {
+    public ComidaService(ComidaRepository comidaRepository, TheMealDbService theMealDbService) {
         this.comidaRepository = comidaRepository;
+        this.theMealDbService = theMealDbService;
     }
 
     public List<ComidaEntity> findAll() {
@@ -36,6 +39,12 @@ public class ComidaService {
                 .orElseGet(() -> {
                     ComidaEntity nueva = new ComidaEntity();
                     nueva.setIdExterno(idExterno);
+
+                    MealDTO meal = theMealDbService.buscarPorId(idExterno);
+                    if (meal != null) {
+                        nueva.setNombre(meal.getNombre());
+                    }
+
                     return comidaRepository.save(nueva);
                 });
     }

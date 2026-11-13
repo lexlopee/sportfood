@@ -1,6 +1,7 @@
 package com.lexlopee.sportfood.controller.usuario;
 
 import com.lexlopee.sportfood.dto.comida.ComidaResponseDTO;
+import com.lexlopee.sportfood.dto.usuario.LoginResponseDTO;
 import com.lexlopee.sportfood.dto.usuario.UsuarioResponseDTO;
 import com.lexlopee.sportfood.entity.usuario.UsuarioEntity;
 import com.lexlopee.sportfood.mapper.comida.ComidaMapper;
@@ -72,8 +73,8 @@ public class UsuariooController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("correo") String correo,
-                         @RequestParam("contrasenia") String contrasenia) {
+    public LoginResponseDTO login(@RequestParam("correo") String correo,
+                                  @RequestParam("contrasenia") String contrasenia) {
         return usuarioService.login(correo, contrasenia);
     }
 }

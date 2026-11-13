@@ -10,6 +10,7 @@ public class ComidaMapper {
         ComidaResponseDTO dto = new ComidaResponseDTO();
         dto.setIdComida(entity.getIdComida());
         dto.setIdExterno(entity.getIdExterno());
+        dto.setNombre(entity.getNombre());
         return dto;
     }
 }

@@ -6,4 +6,5 @@ import lombok.Data;
 public class ComidaResponseDTO {
     private Integer idComida;
     private String idExterno;
+    private String nombre;
 }

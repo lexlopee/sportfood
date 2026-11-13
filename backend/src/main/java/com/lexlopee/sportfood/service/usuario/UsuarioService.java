@@ -1,6 +1,7 @@
 package com.lexlopee.sportfood.service.usuario;
 
 import com.lexlopee.sportfood.config.security.JwtService;
+import com.lexlopee.sportfood.dto.usuario.LoginResponseDTO;
 import com.lexlopee.sportfood.entity.comida.ComidaEntity;
 import com.lexlopee.sportfood.entity.usuario.UsuarioEntity;
 import com.lexlopee.sportfood.repository.usuario.UsuarioRepository;
@@ -47,13 +48,13 @@ public class UsuarioService {
     }
 
     public UsuarioEntity guardarComidaFavorita(Integer idUsuario, String idExterno) {
-        // Busca al usuario
         UsuarioEntity usuario = usuarioRepository.findById(idUsuario).orElse(null);
-        // Guarda la comida
         ComidaEntity comida = comidaService.guardarPorIdExterno(idExterno);
-        // Añade esa comida a la lista de favoritas del usuario
-        usuario.getComidas().add(comida);
-        // Guarda el usuario
+
+        if (!usuario.getComidas().contains(comida)) {
+            usuario.getComidas().add(comida);
+        }
+
         return usuarioRepository.save(usuario);
     }
 
@@ -68,7 +69,7 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
-    public String login(String correo, String contrasenia) {
+    public LoginResponseDTO login(String correo, String contrasenia) {
         UsuarioEntity usuario = usuarioRepository.findByCorreo(correo).orElse(null);
         if (usuario == null) {
             return null;
@@ -76,7 +77,8 @@ public class UsuarioService {
         if (!passwordEncoder.matches(contrasenia, usuario.getContrasenia())) {
             return null;
         }
-        return jwtService.generarToken(correo);
+        String token = jwtService.generarToken(correo);
+        return new LoginResponseDTO(token, usuario.getIdUsuario());
     }
 
 }

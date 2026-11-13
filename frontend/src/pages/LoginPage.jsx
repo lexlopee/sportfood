@@ -22,12 +22,11 @@ function LoginPage() {
         `/users/login?correo=${correo}&contrasenia=${contrasenia}`
       );
 
-      if (!respuesta.data) {
+      if (!respuesta.data || !respuesta.data.token) {
         setError("Correo o contraseña incorrectos");
         return;
       }
-
-      login(respuesta.data);
+      login(respuesta.data.token, respuesta.data.idUsuario);
       navigate("/comidas");
     } catch (e) {
       setError("No se ha podido conectar con el servidor");
