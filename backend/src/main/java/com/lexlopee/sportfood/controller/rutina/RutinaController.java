@@ -6,6 +6,7 @@ import com.lexlopee.sportfood.entity.rutina.RutinaEntity;
 import com.lexlopee.sportfood.mapper.ejercicio.EjercicioMapper;
 import com.lexlopee.sportfood.mapper.rutina.RutinaMapper;
 import com.lexlopee.sportfood.service.rutina.RutinaService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,7 +38,7 @@ public class RutinaController {
     }
 
     @PostMapping
-    public RutinaResponseDTO save(@RequestBody RutinaEntity rutina) {
+    public RutinaResponseDTO save(@Valid @RequestBody RutinaEntity rutina) {
         return rutinaMapper.toResponseDTO(rutinaService.save(rutina));
     }
 

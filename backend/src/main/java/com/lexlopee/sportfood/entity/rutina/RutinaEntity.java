@@ -2,6 +2,7 @@ package com.lexlopee.sportfood.entity.rutina;
 
 import com.lexlopee.sportfood.entity.ejercicio.EjercicioEntity;
 import com.lexlopee.sportfood.entity.usuario.UsuarioEntity;
+import jakarta.validation.constraints.Min;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class RutinaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_rutina")
     private Integer idRutina;
+    @Min(value = 1, message = "El tiempo debe ser mayor que 0")
     @Column(name = "tiempo")
     private Integer tiempo;
     @Column (name = "nombre")
