@@ -6,6 +6,7 @@ import ComidasPage from "./pages/ComidasPage";
 import LoginPage from "./pages/LoginPage";
 import RegistroPage from "./pages/RegistroPage";
 import FavoritosPage from "./pages/FavoritosPage";
+import EjerciciosPage from "./pages/EjerciciosPage";
 
 function Menu() {
   const { token, logout } = useAuth();
@@ -16,6 +17,7 @@ function Menu() {
       {token && (
         <>
           {" | "}<Link to="/comidas">Comidas</Link>
+          {" | "}<Link to="/ejercicios">Ejercicios</Link>
           {" | "}<Link to="/favoritos">Favoritos</Link>
         </>
       )}
@@ -50,6 +52,14 @@ function App() {
             element={
               <RutaProtegida>
                 <ComidasPage />
+              </RutaProtegida>
+            }
+          />
+          <Route
+            path="/ejercicios"
+            element={
+              <RutaProtegida>
+                <EjerciciosPage />
               </RutaProtegida>
             }
           />

@@ -59,5 +59,11 @@ public class RutinaController {
                 .map(ejercicioMapper::toResponseDTO)
                 .toList();
     }
+    @GetMapping("/user/{idUsuario}")
+    public List<RutinaResponseDTO> listarPorUsuario(@PathVariable Integer idUsuario) {
+        return rutinaService.listarPorUsuario(idUsuario).stream()
+                .map(rutinaMapper::toResponseDTO)
+                .toList();
+    }
 
 }

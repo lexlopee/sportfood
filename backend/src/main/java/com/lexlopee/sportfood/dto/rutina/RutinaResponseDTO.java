@@ -7,4 +7,5 @@ public class RutinaResponseDTO {
     private Integer idRutina;
     private Integer tiempo;
     private Integer idUsuario;
+    private String nombre;
 }

@@ -24,6 +24,8 @@ public class RutinaEntity {
     private Integer idRutina;
     @Column(name = "tiempo")
     private Integer tiempo;
+    @Column (name = "nombre")
+    private String nombre;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private UsuarioEntity usuarioEntity;

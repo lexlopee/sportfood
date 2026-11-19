@@ -46,4 +46,7 @@ public class RutinaService {
         RutinaEntity rutina = rutinaRepository.findById(idRutina).orElse(null);
         return rutina.getEjercicios();
     }
+    public List<RutinaEntity> listarPorUsuario(Integer idUsuario) {
+        return rutinaRepository.findByUsuarioEntity_IdUsuario(idUsuario);
+    }
 }

@@ -11,6 +11,7 @@ public class RutinaMapper {
         RutinaResponseDTO dto = new RutinaResponseDTO();
         dto.setIdRutina(entity.getIdRutina());
         dto.setTiempo(entity.getTiempo());
+        dto.setNombre(entity.getNombre());
         dto.setIdUsuario(entity.getUsuarioEntity().getIdUsuario());
         return dto;
     }
